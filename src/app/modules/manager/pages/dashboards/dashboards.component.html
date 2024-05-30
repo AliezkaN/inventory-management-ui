@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row mb-3">
+    <div class="d-flex justify-content-start">
+      <button class="btn btn-primary mx-2" (click)="selectDashboard('products-quantity')">Products Quantity Dashboard</button>
+      <button class="btn btn-primary mx-2" (click)="selectDashboard('products-price')">Products Price Dashboard</button>
+      <button class="btn btn-primary mx-2" (click)="selectDashboard('products-sold')">Sold Products Dashboard</button>
+      <button class="btn btn-primary mx-2" (click)="selectDashboard('orders-earnings')">Orders Earnings Dashboard</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-products-quantity-dashboard *ngIf="selectedDashboard === 'products-quantity'"></app-products-quantity-dashboard>
+      <app-products-price-dashboard *ngIf="selectedDashboard === 'products-price'"></app-products-price-dashboard>
+      <app-sold-products-dashboard *ngIf="selectedDashboard === 'products-sold'"></app-sold-products-dashboard>
+      <app-orders-earnings-dashboard *ngIf="selectedDashboard === 'orders-earnings'"></app-orders-earnings-dashboard>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="container-fluid card register-container">
+  <h3 class="text-center">Create an account</h3>
+  <hr>
+  <div class="alert alert-danger" role="alert" *ngIf="errorMsg.length">
+    <p *ngFor="let msg of errorMsg">{{msg}}</p>
+  </div>
+  <div class="mb-3">
+    <label for="firstname" class="form-label">Firstname *</label>
+    <input [(ngModel)]="registerRequest.firstname" type="text" class="form-control" id="firstname" placeholder="Firstname">
+  </div>
+  <div class="mb-3">
+    <label for="lastname" class="form-label">Lastname *</label>
+    <input [(ngModel)]="registerRequest.lastname" type="text" class="form-control" id="lastname" placeholder="Lastname">
+  </div>
+  <div class="mb-3">
+    <label for="login" class="form-label">Email address *</label>
+    <input [(ngModel)]="registerRequest.email" type="email" class="form-control" id="login" placeholder="name@example.com">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password *</label>
+    <input [(ngModel)]="registerRequest.password" type="password" class="form-control" id="password" placeholder="Password">
+  </div>
+  <hr>
+  <h3 class="text-center">Shop info</h3>
+  <div class="mb-3">
+    <label for="shop name" class="form-label">Shop name *</label>
+    <input [(ngModel)]="registerRequest.shopName" type="text" class="form-control" id="shop name" placeholder="Shop name">
+  </div>
+  <div class="mb-3">
+    <label for="shop address" class="form-label">Shop address *</label>
+    <input [(ngModel)]="registerRequest.shopAddress" type="text" class="form-control" id="shop address" placeholder="Shop address">
+  </div>
+  <div class="mb-3">
+    <label for="shop contact number" class="form-label">Shop contact number *</label>
+    <input [(ngModel)]="registerRequest.shopContactNumber" type="text" class="form-control" id="shop contact number" placeholder="Shop contact number">
+  </div>
+  <div class="mb-3">
+    <label for="shop description" class="form-label">Shop description</label>
+    <input [(ngModel)]="registerRequest.shopDescription" type="text" class="form-control" id="shop description" placeholder="Shop description">
+  </div>
+  <div class="d-flex justify-content-between mb-3">
+    <button (click)="register()" type="button" class="btn btn-primary">
+      <em class="fas fa-sign-in-alt">&nbsp;Create an account</em>
+    </button>
+    <div>
+      Already have an account?&nbsp;
+      <button (click)="login()" type="button" class="btn btn-link">
+        Login
+      </button>
+    </div>
+  </div>
+</div>

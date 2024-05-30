@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          Predicted quantity of products that should be stocked next month
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Actual Quantity</th>
+                <th>Predicted Quantity</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let product of predictionProducts">
+                <td>{{ product.productName }}</td>
+                <td>{{ product.actualQuantity }}</td>
+                <td [ngClass]="{
+                    'text-danger': isQuantityLow(product.actualQuantity, product.predictedQuantity),
+                    'text-success': !isQuantityLow(product.actualQuantity, product.predictedQuantity)
+                  }">
+                  {{ product.predictedQuantity }}
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

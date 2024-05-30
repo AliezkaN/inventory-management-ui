@@ -1,0 +1,38 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-light w-100" style="width: 280px; height: 100vh;">
+  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+    <span class="fs-4">Manager Menu</span>
+  </a>
+  <hr>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a [routerLink]="['/manager/profile']" class="nav-link link-dark" routerLinkActive="active">
+        Profile
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/manager/products']" class="nav-link link-dark" routerLinkActive="active">
+        Products
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/manager/orders']" class="nav-link link-dark" routerLinkActive="active">
+        Orders
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/manager/dashboards']" class="nav-link link-dark" routerLinkActive="active">
+        Dashboards
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/manager/predictions']" class="nav-link link-dark" routerLinkActive="active">
+        Predictions
+      </a>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link link-dark btn btn-link" (click)="logout()">
+        Logout
+      </button>
+    </li>
+  </ul>
+</div>

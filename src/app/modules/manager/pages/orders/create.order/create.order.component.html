@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h4>Create Order</h4>
+          <button class="btn btn-success" (click)="addProduct()">Add Product</button>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+            <div formArrayName="orderDetails">
+              <div *ngFor="let item of orderDetails.controls; let i = index" [formGroupName]="i" class="mb-3">
+                <div class="form-group mb-3">
+                  <label for="product">Product</label>
+                  <select formControlName="productId" class="form-control">
+                    <option value="">Select a product</option>
+                    <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
+                  </select>
+                  <div *ngIf="item.get('productId')!.invalid && (item.get('productId')!.dirty || item.get('productId')!.touched)">
+                    <small class="text-danger">Product is required.</small>
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="quantity">Quantity</label>
+                  <input type="number" formControlName="quantity" class="form-control" placeholder="Enter quantity">
+                  <div *ngIf="item.get('quantity')!.invalid && (item.get('quantity')!.dirty || item.get('quantity')!.touched)">
+                    <small class="text-danger" *ngIf="item.get('quantity')!.errors?.['required']">Quantity is required and must be a positive number.</small>
+                    <small class="text-danger" *ngIf="item.get('quantity')!.errors?.['maxQuantity']">Quantity cannot exceed {{ getProductMaxQuantity(item.get('productId')?.value) }}.</small>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-danger mb-3" (click)="removeProduct(i)">Remove</button>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <button type="submit" class="btn btn-primary" [disabled]="orderForm.invalid">Create Order</button>
+              <button type="button" class="btn btn-secondary" (click)="navigateBack()">Back to orders</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+.card {
+  margin-top: 20px;
+}
+
+.card-header {
+  background-color: #007bff;
+  color: white;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #dee2e6;
+  padding: 8px;
+}
+
+.text-danger {
+  color: red;
+  font-weight: bold;
+}
+
+.text-success {
+  color: green;
+  font-weight: bold;
+}

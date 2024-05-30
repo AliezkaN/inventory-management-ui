@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header">
+    Sold Products Chart
+  </div>
+  <div class="card-body">
+    <div class="row mb-3 justify-content-center">
+      <div class="col-md-6 text-center">
+        <label for="fromMonth">Month:</label>
+        <input type="month" id="fromMonth" class="form-control" [(ngModel)]="month" (change)="updateChart()">
+      </div>
+    </div>
+    <div style="height: 575px; width: 100%;">
+      <canvas id="soldProductsChart"></canvas>
+    </div>
+    <div class="mt-3 text-center">
+      <h5>Total Sold Quantity: {{ totalQuantity }}</h5>
+    </div>
+  </div>
+</div>
